@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SportHub — Динамічні елементи (Lab 7)</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Manrope:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- jQuery UI (Accordion, Datepicker, Menu) -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+
+  <!-- Owl Carousel (локально з архіву) -->
+  <link rel="stylesheet" href="libs/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="libs/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css">
+
+  <!-- UniteGallery (CDN) -->
+  <link rel="stylesheet" href="libs/unitegallery/css/unite-gallery.css">
+  <link rel="stylesheet" href="libs/unitegallery/themes/default/ug-theme-default.css">
+
+  <!-- Ваші стилі -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="container header__row">
+      <div class="brand">
+        <div class="brand__logo">S</div>
+        <div class="brand__text">
+          <div class="brand__title">SportHub</div>
+          <div class="brand__subtitle">різні види спорту • тренування • натхнення</div>
+        </div>
+      </div>
+
+      <nav class="topnav">
+        <a href="#task1">Завдання 1</a>
+        <a href="#carousel">Owl Carousel</a>
+        <a href="#tiles">UniteGallery</a>
+        <a href="#slider">Slider</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero__grid">
+        <div class="hero__text">
+          <h1>Динамічні елементи UI для сайту про спорт</h1>
+          <p>
+            На сторінці є <b>Accordion</b>, <b>Datepicker</b>, <b>Menu</b>, а також
+            <b>Owl Carousel</b> і два приклади <b>UniteGallery</b>.
+          </p>
+
+          <div class="hero__badges">
+            <span class="badge">Футбол</span>
+            <span class="badge">Волейбол</span>
+            <span class="badge">Баскетбол</span>
+            <span class="badge">Плавання</span>
+            <span class="badge">Теніс</span>
+            <span class="badge">Шахи</span>
+          </div>
+
+          <div class="hero__note">
+            Примітка: усе працює на базі <b>jQuery</b> та плагінів.
+          </div>
+        </div>
+
+        <div class="hero__card">
+          <div class="card__title">Швидкий вибір</div>
+          <div class="quick">
+            <label class="label" for="eventDate">Обери дату тренування</label>
+            <input id="eventDate" class="input" type="text" placeholder="Натисни, щоб відкрити календар" autocomplete="off" />
+            <div id="dateHint" class="hint">Дата ще не вибрана.</div>
+
+            <div class="divider"></div>
+
+            <div class="menu-block">
+              <div class="label">Меню: популярні спортсмени</div>
+              <button id="menuBtn" class="btn" type="button">Вибрати спорт ▾</button>
+
+              <!-- jQuery UI Menu -->
+              <ul id="sportsMenu" class="menu" aria-label="Меню видів спорту">
+                <li data-sport="football"><div>Футбол</div></li>
+                <li data-sport="volleyball"><div>Волейбол</div></li>
+                <li data-sport="basketball"><div>Баскетбол</div></li>
+                <li data-sport="swimming"><div>Плавання</div></li>
+                <li data-sport="tennis"><div>Теніс</div></li>
+                <li data-sport="chess"><div>Шахи</div></li>
+              </ul>
+
+              <div class="athletes">
+                <div class="athletes__title">3 популярні спортсмени:</div>
+                <ol id="athletesList" class="athletes__list">
+                  <li>Обери спорт у меню</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero__bg"></div>
+    </section>
+
+    <!-- TASK 1 -->
+    <section id="task1" class="section">
+      <div class="container">
+        <div class="section__head">
+          <h2>Завдання 1 — jQuery UI</h2>
+          <p>Accordion • Datepicker • Menu</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="panel">
+            <h3 class="panel__title">Accordion — коротко про види спорту</h3>
+
+            <div id="sportsAccordion">
+              <h3>Футбол</h3>
+              <div>
+                <p>
+                  Командний вид спорту, де головна мета — забити м’яч у ворота суперника.
+                  Важливі як техніка (пас, удар, дриблінг), так і тактика та взаємодія в команді.
+                </p>
+                <ul class="ul">
+                  <li>Розвиває витривалість і швидкість</li>
+                  <li>Покращує роботу в команді</li>
+                  <li>Тренує реакцію та координацію</li>
+                </ul>
+              </div>
+
+              <h3>Волейбол</h3>
+              <div>
+                <p>
+                  Гра через сітку, де команда має максимум 3 дотики, щоб повернути м’яч на бік суперника.
+                  Дуже важливі стрибок, реакція та точність передач.
+                </p>
+                <ul class="ul">
+                  <li>Подача, прийом, пас, атака, блок</li>
+                  <li>Добре розвиває координацію</li>
+                  <li>Підходить для залу та пляжу</li>
+                </ul>
+              </div>
+
+              <h3>Баскетбол</h3>
+              <div>
+                <p>
+                  Динамічний командний спорт з кидками в кільце.
+                  Часто змінюється напрям руху, тому важливі спритність і контроль м’яча.
+                </p>
+                <ul class="ul">
+                  <li>Дриблінг і точний кидок</li>
+                  <li>Швидке прийняття рішень</li>
+                  <li>Сильна робота ніг та корпусу</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="tip">
+              <b>Підказка:</b> секції розкриваються/закриваються кліком — це jQuery UI Accordion.
+            </div>
+          </div>
+
+          <div class="panel">
+            <h3 class="panel__title">Datepicker + Menu (демо)</h3>
+            <p class="muted">
+              У блоці “Швидкий вибір” вище є календар (Datepicker) та меню (Menu).
+              Виберіть дату — і нижче з’явиться повідомлення.
+            </p>
+
+            <div class="mini-result">
+              <div class="mini-result__title">Обрана дата:</div>
+              <div id="selectedDate" class="mini-result__value">—</div>
+            </div>
+
+            <div class="mini-result">
+              <div class="mini-result__title">Обраний спорт:</div>
+              <div id="selectedSport" class="mini-result__value">—</div>
+            </div>
+
+            <div class="mini-result">
+              <div class="mini-result__title">Спортсмени:</div>
+              <div id="selectedAthletes" class="mini-result__value">—</div>
+            </div>
+
+            <div class="tip">
+              <b>Як це працює:</b> меню — jQuery UI Menu, а список спортсменів підтягується з JS-об’єкта.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TASK 2 -->
+    <section id="task2" class="section section--alt">
+      <div class="container">
+        <div class="section__head">
+          <h2>Завдання 2 — Галереї та слайдери</h2>
+          <p>Owl Carousel • UniteGallery • Slider</p>
+        </div>
+
+        <!-- OWL -->
+        <div id="carousel" class="panel">
+          <h3 class="panel__title">Owl Carousel — прокрутка фото</h3>
+          <div class="owl-carousel owl-theme">
+            <div class="item"><img src="img/sport1.jpg" alt="Sport 1"></div>
+            <div class="item"><img src="img/sport2.jpg" alt="Sport 2"></div>
+            <div class="item"><img src="img/sport3.jpg" alt="Sport 3"></div>
+            <div class="item"><img src="img/sport4.jpg" alt="Sport 4"></div>
+            <div class="item"><img src="img/sport5.jpg" alt="Sport 5"></div>
+            <div class="item"><img src="img/sport6.jpg" alt="Sport 6"></div>
+            <div class="item"><img src="img/sport7.jpg" alt="Sport 7"></div>
+          </div>
+          <p class="muted">
+            Автопрокрутка увімкнена, але можна гортати вручну стрілками або свайпом/мишкою.
+          </p>
+        </div>
+
+        <!-- UNITE GALLERY: TILES -->
+        <div id="tiles" class="panel">
+          <h3 class="panel__title">UniteGallery — “розкидані” плитки (tiles)</h3>
+          <div id="galleryTiles" style="display:none;">
+            <img alt="Rugby" src="img/sport1.jpg"
+              data-image="img/sport1.jpg"
+              data-description="Рух, контакт, сила і тактика.">
+            <img alt="Football" src="img/sport2.jpg"
+              data-image="img/sport2.jpg"
+              data-description="Гра мільйонів: швидкість, пас і гол.">
+            <img alt="Chess" src="img/sport3.jpg"
+              data-image="img/sport3.jpg"
+              data-description="Стратегія, логіка, терпіння.">
+            <img alt="Volleyball" src="img/sport4.jpg"
+              data-image="img/sport4.jpg"
+              data-description="Сітка, прийом, пас і атака.">
+            <img alt="Swimming" src="img/sport5.jpg"
+              data-image="img/sport5.jpg"
+              data-description="Техніка, дихання, витривалість.">
+            <img alt="Basketball" src="img/sport6.jpg"
+              data-image="img/sport6.jpg"
+              data-description="Кидок, дриблінг, командна гра.">
+            <img alt="Tennis" src="img/sport7.jpg"
+              data-image="img/sport7.jpg"
+              data-description="Точність, швидкість, реакція.">
+          </div>
+          <p class="muted">
+            Натисни на фото — відкриється перегляд із заголовком/описом.
+          </p>
+        </div>
+
+        <!-- UNITE GALLERY: SLIDER -->
+        <div id="slider" class="panel">
+          <h3 class="panel__title">Slider — UniteGallery (theme: slider)</h3>
+          <div id="gallerySlider" style="display:none;">
+            <img alt="Football" src="img/sport2.jpg" data-image="img/sport2.jpg" data-description="Футбол — швидкість і командна тактика.">
+            <img alt="Volleyball" src="img/sport4.jpg" data-image="img/sport4.jpg" data-description="Волейбол — подача, блок, атака.">
+            <img alt="Swimming" src="img/sport5.jpg" data-image="img/sport5.jpg" data-description="Плавання — техніка та витривалість.">
+            <img alt="Basketball" src="img/sport6.jpg" data-image="img/sport6.jpg" data-description="Баскетбол — кидки, рух і дриблінг.">
+            <img alt="Tennis" src="img/sport7.jpg" data-image="img/sport7.jpg" data-description="Теніс — реакція й точність удару.">
+          </div>
+          <p class="muted">
+            Це окремий варіант галереї у вигляді слайдера з мініатюрами.
+          </p>
+        </div>
+
+      
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__row">
+      <div>© SportHub • Lab 7 (jQuery UI + Plugins)</div>
+      <div class="footer__links">
+        <a href="#task1">Вгору</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- jQuery + jQuery UI -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.min.js"></script>
+
+  <!-- Owl Carousel (локально) -->
+  <script src="libs/OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
+
+  <!-- UniteGallery (CDN) -->
+  <script src="libs/unitegallery/js/unitegallery.min.js"></script>
+  <script src="libs/unitegallery/themes/tiles/ug-theme-tiles.js"></script>
+  <script src="libs/unitegallery/themes/slider/ug-theme-slider.js"></script>
+
+  <!-- Ваш JS -->
+  <script src="js/main.js"></script>
+</body>
+</html>
